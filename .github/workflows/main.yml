@@ -1,12 +1,12 @@
-name: Run buhsu.py Daily
+name: Auto Bushu Daily
 
 on:
   schedule:
-    - cron: '0 19 * * *'  # 每天凌晨 3 点
+    - cron: '0 19 * * *'  # 北京时间凌晨 3 点
   workflow_dispatch:
 
 jobs:
-  run-script:
+  run-bushu:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,10 @@ jobs:
         python-version: '3.x'
 
     - name: Install dependencies
-      run: pip install requests  # 如有需要可加其他库
+      run: |
+        pip install selenium
+        pip install webdriver-manager
 
-    - name: Run Python script
-      run: python buhsu.py       # ✅ 确保这里路径正确
+    - name: Run script
+      run: python buhsu.py
+
