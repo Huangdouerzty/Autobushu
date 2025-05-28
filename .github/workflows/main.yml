@@ -1,0 +1,25 @@
+name: Run buhsu.py Daily
+
+on:
+  schedule:
+    - cron: '0 19 * * *'  # 每天凌晨 3 点
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install requests  # 如有需要可加其他库
+
+    - name: Run Python script
+      run: python buhsu.py       # ✅ 确保这里路径正确
