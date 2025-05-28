@@ -25,11 +25,6 @@ jobs:
     - name: Run buhsu.py
       run: python buhsu.py
 
-    - name: Upload result screenshot
-      uses: actions/upload-artifact@v3
-      with:
-        name: result-screenshot
-        path: result.png
 
 
 
