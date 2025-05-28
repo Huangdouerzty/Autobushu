@@ -1,8 +1,6 @@
 name: Run buhsu.py with Selenium
 
 on:
-  schedule:
-    - cron: '0 19 * * *'  # 每天UTC时间19点（北京时间凌晨3点）
   push:
   workflow_dispatch:
 
@@ -28,10 +26,11 @@ jobs:
       run: python buhsu.py
 
     - name: Upload result screenshot
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: result-screenshot
         path: result.png
+
 
 
 
