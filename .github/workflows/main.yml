@@ -1,8 +1,7 @@
-name: Auto Bushu Daily
+name: Run buhsu.py with Selenium
 
 on:
-  schedule:
-    - cron: '0 19 * * *'  # 北京时间凌晨3点
+  push:
   workflow_dispatch:
 
 jobs:
@@ -20,10 +19,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install selenium
-        pip install webdriver-manager
+        pip install --upgrade pip
+        pip install selenium webdriver-manager
 
-    - name: Run script
+    - name: Run buhsu.py
       run: python buhsu.py
+
 
 
