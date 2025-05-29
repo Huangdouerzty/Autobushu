@@ -3,31 +3,26 @@ name: Run buhsu.py with Selenium
 on:
   push:
   workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *'  # 每天凌晨 2 点运行（UTC）
 
 jobs:
   run-bushu:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: 检出代码
       uses: actions/checkout@v2
 
-    - name: Set up Python
+    - name: 设置 Python 环境
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
 
-    - name: Install dependencies
+    - name: 安装依赖
       run: |
-        pip install --upgrade pip
+        python -m pip install --upgrade pip
         pip install selenium webdriver-manager
 
-    - name: Run buhsu.py
+    - name: 运行 buhsu.py
       run: python buhsu.py
-
-
-
-
-
-
-
