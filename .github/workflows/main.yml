@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 2 * * *'  # 每天凌晨 2 点运行（UTC）
-
+#触发注册定时器
 jobs:
   run-bushu:
     runs-on: ubuntu-latest
